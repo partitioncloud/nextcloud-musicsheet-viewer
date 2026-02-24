@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>musicsheetviewer</id>
+	<name>MusicSheet Viewer</name>
+	<summary>Visualize and play music sheets</summary>
+	<description>Visualize and play music sheets
+
+- .mscz | MuseScore
+- .mxl | MusicXML
+- .mid | MIDI (TODO)
+- .ly | LilyPond (TODO)</description>
+	<version>1.0.0</version>
+	<licence>AGPL-3.0-or-later</licence>
+	<author mail="me.git@augustin64.fr" homepage="https://github.com/augustin64/">Augustin64</author>
+	<namespace>MusicSheetViewer</namespace>
+	<category>files</category>
+	<category>multimedia</category>
+	<bugs>https://github.com/augustin64/nextcloud-musicsheet-viewer</bugs>
+	<dependencies>
+		<nextcloud min-version="31" max-version="33"/>
+	</dependencies>
+	<repair-steps>
+		<install>
+			<step>OCA\MusicSheetViewer\Migration\MimeTypeInstall</step>
+		</install>
+		<uninstall>
+			<step>OCA\MusicSheetViewer\Migration\MimeTypeUninstall</step>
+		</uninstall>
+	</repair-steps>
+</info>
