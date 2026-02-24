@@ -4,7 +4,7 @@ declare(strict_types=1);
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace OCA\MusicSheetViewer\Listener;
-use OCA\MusicSheetListener\AppInfo\Application;
+use OCA\MusicSheetViewer\AppInfo\Application;
 
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\Http\TemplateResponse;
