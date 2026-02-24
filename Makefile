@@ -16,13 +16,13 @@ build:: src/score-display/target
 	npm run build
 	cp -r src/score-display/target/* js/
 	mv js/score-display.css css/
-	$(RM) -r $(APPS_EXTRA)/musicsheetviewer
-	cp $(PWD) -r $(APPS_EXTRA)/musicsheetviewer
+	cat src/score-display.override.css >> css/score-display.css
 
 build-dev:: src/score-display/target
 	npm run dev
 	cp -r src/score-display/target/* js/
 	mv js/score-display.css css/
+	cat src/score-display.override.css >> css/score-display.css
 
 src/score-display/target: src/score-display src/webmscore
 	cp -r src/webmscore src/score-display/webmscore

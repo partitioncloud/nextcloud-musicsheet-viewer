@@ -1,0 +1,54 @@
+.slcwd-playback-progressbar-i {
+  background-color: #0098FF;
+}
+
+.slcwd-playback-progressbar {
+  height: 5px;
+  margin-top: 6px;
+  margin-right: 15px;
+}
+
+.slcwd-playback-controls {
+  margin: auto;
+  border-radius: 24px;
+  width: calc(max(75vw, 400px));
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.slcwd-playback-button {
+  flex-basis: unset;
+  border-radius: 51px;
+  margin: 3px 0px;
+}
+
+.slcwd-playback-button:hover {
+  background: #0098FF !important;
+  color: white;
+}
+
+.slcwd-pause {
+  margin-left: 4px;
+}
+
+.slcwd-pages-controls {
+  position: fixed;
+  margin: auto;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+
+.slcwd-pages-display {
+  margin-top: 50px;
+  margin-bottom: 12px;
+}
+
+body {
+  background-color: #efefef;
+}
