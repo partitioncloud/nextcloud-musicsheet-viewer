@@ -4,7 +4,6 @@ declare(strict_types=1);
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace OCA\MusicSheetViewer\AppInfo;
-use OCA\MusicSheetViewer\Listener\AddCspEventListener;
 use OCA\MusicSheetViewer\Listener\LoadViewerListener;
 use OCA\MusicSheetViewer\Listener\LoadPublicViewerListener;
 
@@ -32,7 +31,6 @@ class Application extends App implements IBootstrap {
 	public function register(IRegistrationContext $context): void {
 		$context->registerEventListener(LoadViewer::class, LoadViewerListener::class);
 		$context->registerEventListener(BeforeTemplateRenderedEvent::class, LoadPublicViewerListener::class);
-		$context->registerEventListener(AddContentSecurityPolicyEvent::class, AddCspEventListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
