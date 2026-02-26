@@ -9,7 +9,7 @@
 - .mxl, .musicxml | MusicXML
 - .midi | MIDI (currently not supported due to a bug in WebMscore)
 - .gp, .gpx, ... | GuitarPro
-- and many mored, epending on [how MuseScore supports them](https://musescore.org/en/handbook/3/file-formats#share-with-other-software)
+- and many more, if [MuseScore supports them](https://musescore.org/en/handbook/3/file-formats#share-with-other-software).
 </description>
 	<version>1.0.0</version>
 	<licence>AGPL-3.0-or-later</licence>

@@ -39,6 +39,7 @@ abstract class MimeTypeBase implements IRepairStep
 		'sgu' => ['application/bb+sgu'], // Band-in-a-Box
 
 		'ove' => ['application/overture'], // Overture
+		'scw' => ['application/overture'], // Overture
 
 		'midi' => ['audio/midi'],
 		'mid' => ['audio/midi'],
