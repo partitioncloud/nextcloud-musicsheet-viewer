@@ -3,8 +3,7 @@
     style="width: 100%; height: 100%"
     v-if="isDownloadable"
     ref="iframe"
-    :src="iframeSrc"
-    @load="onIFrameLoaded" />
+    :src="iframeSrc" />
   <div v-else id="emptycontent">
     <div class="icon-error" />
       <h3>To view a file, you need a read access to it</h3>

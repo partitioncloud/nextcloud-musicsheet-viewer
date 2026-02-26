@@ -10,6 +10,12 @@
 /** @var OCP\IURLGenerator $urlGenerator */
 $urlGenerator = $_['urlGenerator'];
 $version = \OC::$server->getAppManager()->getAppVersion('musicsheetviewer');
+
+use OCA\MusicSheetViewer\Migration\MimeTypeBase;
+
+$file = $_GET['file'] ?? '';
+$ext = pathinfo($file, PATHINFO_EXTENSION);
+$type = MimeTypeBase::getCanonicExt($ext);
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +50,9 @@ See https://github.com/adobe-type-tools/cmap-resources
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google" content="notranslate">
   <body>
-    <score-display src="<?php p($_GET["file"])?>" type="mscz">
-      <score-track src="<?php p($_GET["file"])?>" type="mscz/synth:all">Tutti</score-track>
-      <score-download href="<?php p($_GET["file"])?>">Download</score-download>
+  <score-display src="<?php p($file)?>" type="<?php p($type ?? '')?>">
+      <score-track src="<?php p($file)?>" type="mscz/synth:all">Tutti</score-track>
+      <score-download href="<?php p($file)?>">Download</score-download>
     </score-display>
   </body>
 </html>

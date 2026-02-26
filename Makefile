@@ -4,12 +4,10 @@ all: build
 ## Install to APPS-EXTRA in nextcloud-docker-dev container
 APPS_EXTRA = /home/augustin64/Downloads/git-repos/nextcloud-docker-dev/workspace/server/apps-extra
 install:: build
-	$(RM) -r $(APPS_EXTRA)/musicsheetviewer
-	cp $(PWD) -r $(APPS_EXTRA)/musicsheetviewer
+	rsync -rq . $(APPS_EXTRA)/musicsheetviewer
 
 install-dev:: build-dev
-	$(RM) -r $(APPS_EXTRA)/musicsheetviewer
-	cp $(PWD) -r $(APPS_EXTRA)/musicsheetviewer
+	rsync -rq . $(APPS_EXTRA)/musicsheetviewer
 
 ## Build and install dependencies
 build:: src/score-display/target

@@ -19,10 +19,55 @@ abstract class MimeTypeBase implements IRepairStep
 	const EXT_MIME_MAP = array(
 		'musicxml' => ['application/vnd.recordare.musicxml+xml'],
 		'mxml' => ['application/vnd.recordare.musicxml+xml'],
+		'mxl' => ['application/vnd.recordare.musicxml'], // Compressed MusicXML
+		'mei' => ['application/mei'], // Music Encoding Initiative
+
+		'gp' => ['application/guitarpro'],      // Guitar Pro
+		'gpx' => ['application/guitarpro+gpx'], // Guitar Pro 6
+		'gp5' => ['application/guitarpro+gp5'], // Guitar Pro 5
+		'gp4' => ['application/guitarpro+gp4'], // Guitar Pro 4
+		'gp3' => ['application/guitarpro+gp3'], // Guitar Pro 3
+
+		'ptb' => ['application/powertab'], // Power Tab Editor
+
+		'cap' => ['application/capella'], // Capella
+		'capx' => ['application/capella+capx'], // Capella
+
+		'bww' => ['application/bagpipe'], // Bagpipe Music Writer
+
+		'mgu' => ['application/bb+mgu'], // Band-in-a-Box
+		'sgu' => ['application/bb+sgu'], // Band-in-a-Box
+
+		'ove' => ['application/overture'], // Overture
+
 		'midi' => ['audio/midi'],
 		'mid' => ['audio/midi'],
+		'kar' => ['audio/midi'],
+
 		'mscz' => ['application/musescore'],
 	);
+
+	// Preferred extension name, ensures filtering to the extension name passed to score-display
+	const CANONIC_EXTENSION = array(
+		'application/vnd.recordare.musicxml+xml' => 'musicxml',
+		'application/vnd.recordare.musicxml' => 'mxl',
+		'application/mei' => 'mei',
+		'application/guitarpro' => 'gp',
+		'application/guitarpro+gpx' => 'gpx',
+		'application/guitarpro+gp5' => 'gp5',
+		'application/guitarpro+gp4' => 'gp4',
+		'application/guitarpro+gp3' => 'gp3',
+		'application/powertab' => 'ptb',
+		'application/capella' => 'cap',
+		'application/capella+capx' => 'capx',
+		'application/bagpipe' => 'bww',
+		'application/bb+mgu' => 'mgu',
+		'application/bb+sgu' => 'sgu',
+		'application/overture' => 'ove',
+		'audio/midi' => 'midi',
+		'application/musescore' => 'mscz',
+	);
+
 
 	protected $mimeTypeLoader;
 	protected $updateJS;
@@ -31,6 +76,18 @@ abstract class MimeTypeBase implements IRepairStep
 	{
 		$this->mimeTypeLoader = $mimeTypeLoader;
 		$this->updateJS = $updateJS;
+	}
+
+	public static function getCanonicExt(string $ext): ?string {
+		$ext = strtolower($ext);
+
+		if (!isset(self::EXT_MIME_MAP[$ext])) {
+			return null;
+		}
+
+		$mime = self::EXT_MIME_MAP[$ext][0];
+
+		return self::CANONIC_EXTENSION[$mime] ?? null;	
 	}
 
 	protected function appendToFileMapping(string $filename, array $data) {
