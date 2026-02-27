@@ -79,14 +79,8 @@ abstract class MimeTypeBase implements IRepairStep
 		$this->updateJS = $updateJS;
 	}
 
-	public static function getCanonicExt(string $ext): ?string {
-		$ext = strtolower($ext);
-
-		if (!isset(self::EXT_MIME_MAP[$ext])) {
-			return null;
-		}
-
-		$mime = self::EXT_MIME_MAP[$ext][0];
+	public static function getCanonicExt(string $mime): ?string {
+		$mime = strtolower($mime);
 
 		return self::CANONIC_EXTENSION[$mime] ?? null;	
 	}

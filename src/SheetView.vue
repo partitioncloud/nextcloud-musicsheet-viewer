@@ -31,8 +31,9 @@ export default {
   },
 	computed: {
 		iframeSrc() {
-			return generateUrl('/apps/musicsheetviewer/?file={file}', {
+			return generateUrl('/apps/musicsheetviewer/?file={file}&mime={mime}', {
 				file: this.source ?? this.davPath,
+        mime: this.mime
 			})
 		},
 		file() {
