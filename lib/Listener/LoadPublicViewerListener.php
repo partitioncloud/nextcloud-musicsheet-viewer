@@ -20,7 +20,6 @@ class LoadPublicViewerListener implements IEventListener {
 		if ($event->getResponse()->getRenderAs() !== TemplateResponse::RENDER_AS_PUBLIC) {
 			return;
 		}
-		Util::addScript(Application::APP_ID(), 'musicsheetviewer');
 		Util::addInitScript(Application::APP_ID(), 'musicsheetviewer-init');
 	}
 }

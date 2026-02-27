@@ -16,7 +16,6 @@ class LoadViewerListener implements IEventListener {
 		if (!$event instanceof LoadViewer) {
 			return;
 		}
-		Util::addInitScript(Application::APP_ID(), 'musicsheetviewer', 'viewer');
 		Util::addInitScript(Application::APP_ID(), 'musicsheetviewer-init');
 	}
 }
