@@ -53,10 +53,6 @@ class MimeTypeInstall extends MimeTypeBase
 		foreach ($iconNames as $iconName)
 		{
 			$source = __DIR__ . '/../../img/icons-mime/gen.svg';
-            $sourceSpec = __DIR__ . '/../../img/icons-mime/spec-' . $iconName . '.svg';
-			if (file_exists($sourceSpec)) {
-				$source = $sourceSpec;
-			}
             $target = \OC::$SERVERROOT . '/core/img/filetypes/' . $iconName . '.svg';
             if (!file_exists($target) || md5_file($target) !== md5_file($source))
             {

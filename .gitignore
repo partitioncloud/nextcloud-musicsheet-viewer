@@ -1,7 +1,9 @@
-# Output directories
+# Output
 js/
 css/
+img/
 node_modules/
+musicsheetviewer.zip
 
 # Dependencies
 src/webmscore

@@ -16,10 +16,10 @@ install:: build
 	rsync -rq --delete . $(APPS_EXTRA)/$(APP_NAME)
 
 $(APP_NAME).zip:: build
-	zip -urq $(APP_NAME).zip appinfo css js lib LICENSE templates
+	zip -urq $(APP_NAME).zip appinfo css js img lib LICENSE templates
 
 ## Build and install dependencies
-build:: js css js/webmscore/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
+build:: js css img js/webmscore/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
 
 # This is a weird hack but .data files are not served statically from apps files in NC
 # Thus we rename webmscore.lib.data to webmscore.lib.data.wasm
@@ -38,6 +38,10 @@ js: npm-build src/score-display/target
 css: npm-build
 	mv js/score-display.css css/
 	cat src/score-display.override.css >> css/score-display.css
+
+img:
+	mkdir -p img
+	cp src/img/* img -r
 
 npm-build:
 	npm run $(BUILD_MODE)
