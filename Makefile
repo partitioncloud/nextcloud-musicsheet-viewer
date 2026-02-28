@@ -39,7 +39,7 @@ css: npm-build
 	mv js/score-display.css css/
 	cat src/score-display.override.css >> css/score-display.css
 
-img:
+img: $(wildcard src/img/*.svg)
 	mkdir -p img
 	cp src/img/* img -r
 
