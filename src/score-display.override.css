@@ -49,6 +49,10 @@
   margin-bottom: 12px;
 }
 
+.slcwd-playback-tooltip {
+  transform: translateX(65px) translateY(-100%);
+}
+
 body {
   background-color: #efefef;
 }
