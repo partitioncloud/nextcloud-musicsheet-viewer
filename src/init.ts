@@ -21,6 +21,7 @@ registerHandler({
 		'application/overture',
 		'audio/midi',
 		'application/musescore',
+		'application/musescore+mscx',
 	],
 	component: SheetView,
 });

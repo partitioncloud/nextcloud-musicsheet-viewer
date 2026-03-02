@@ -5,13 +5,12 @@
 	<summary>Visualize and play music sheets</summary>
 	<description>Visualize and play music sheets of various formats
 
-- .mscz | MuseScore
-- .mxl, .musicxml | MusicXML
-- .midi | MIDI (currently not supported due to a bug in WebMscore)
-- .gp, .gpx, ... | GuitarPro
-- and many more, if [MuseScore supports them](https://musescore.org/en/handbook/3/file-formats#share-with-other-software).
+- mscz, mscx | MuseScore
+- mxl, musicxml | MusicXML
+- gp, gp3, ... | GuitarPro
+- and many more, see [MuseScore handbook for full list](https://musescore.org/en/handbook/3/file-formats#share-with-other-software) for untested formats.
 </description>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<licence>AGPL-3.0-or-later</licence>
 	<author mail="me.git@augustin64.fr" homepage="https://github.com/augustin64/">Augustin64</author>
 	<namespace>MusicSheetViewer</namespace>

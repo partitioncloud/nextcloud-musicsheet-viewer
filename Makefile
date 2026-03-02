@@ -3,15 +3,10 @@ APP_NAME = musicsheetviewer
 # export BUILD_MODE=dev to build dev js
 BUILD_MODE ?= build
 
-WEBMSCORE = src/webmscore
-ifeq ($(BUILD_MODE),dev)
-	WEBMSCORE = src/webmscore-dev
-endif
-
 all: build
 
 ## Install to APPS-EXTRA in nextcloud-docker-dev container
-APPS_EXTRA = /home/augustin64/Downloads/git-repos/nextcloud-docker-dev/workspace/server/apps-extra
+APPS_EXTRA ?= ~/nextcloud-docker-dev/workspace/server/apps-extra
 install:: build
 	rsync -rq --delete . $(APPS_EXTRA)/$(APP_NAME)
 
@@ -46,9 +41,7 @@ img: $(wildcard src/img/*.svg)
 npm-build:
 	npm run $(BUILD_MODE)
 
-src/score-display/target: src/score-display src/webmscore
-	mkdir -p src/score-display/webmscore
-	cp -r $(WEBMSCORE)/* src/score-display/webmscore/
+src/score-display/target: src/score-display
 	cd src/score-display && make no-cdn
 
 src/score-display:

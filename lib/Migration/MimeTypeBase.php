@@ -46,6 +46,7 @@ abstract class MimeTypeBase implements IRepairStep
 		'kar' => ['audio/midi'],
 
 		'mscz' => ['application/musescore'],
+		'mscx' => ['application/musescore+mscx'],
 	);
 
 	// Preferred extension name, ensures filtering to the extension name passed to score-display
@@ -67,6 +68,7 @@ abstract class MimeTypeBase implements IRepairStep
 		'application/overture' => 'ove',
 		'audio/midi' => 'midi',
 		'application/musescore' => 'mscz',
+		'application/musescore+mscx' => 'mscx',
 	);
 
 
