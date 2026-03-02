@@ -38,8 +38,11 @@ img: $(wildcard src/img/*.svg)
 	mkdir -p img
 	cp src/img/* img -r
 
-npm-build:
+npm-build: node_modules
 	npm run $(BUILD_MODE)
+
+node_modules:
+	npm ci
 
 src/score-display/target: src/score-display
 	cd src/score-display && make no-cdn
