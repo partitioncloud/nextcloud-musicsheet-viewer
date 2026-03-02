@@ -1,5 +1,7 @@
 # MusicSheet viewer for Nextcloud
 
+<img width="2256" height="1377" alt="Screenshot" src="https://github.com/user-attachments/assets/140d2ddd-1930-4d70-9b75-c2acdc703178" />
+
 ## Visualize and play music sheets
 
 |Extension|Type|Notes|
