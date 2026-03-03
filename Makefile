@@ -10,8 +10,12 @@ APPS_EXTRA ?= ~/nextcloud-docker-dev/workspace/server/apps-extra
 install:: build
 	rsync -rq --delete . $(APPS_EXTRA)/$(APP_NAME)
 
-$(APP_NAME).zip:: build
-	zip -urq $(APP_NAME).zip appinfo css js img lib LICENSE templates
+$(APP_NAME).tar.gz:: build
+	tar -czf $(APP_NAME).tar.gz appinfo css js img lib LICENSE templates
+ifneq (,$(wildcard ~/.nextcloud/certificates/$(APP_NAME).key))
+	@echo "Signature:"
+	openssl dgst -sha512 -sign ~/.nextcloud/certificates/$(APP_NAME).key $(APP_NAME).tar.gz | openssl base64
+endif
 
 ## Build and install dependencies
 build:: js css img js/webmscore/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
