@@ -11,7 +11,7 @@ install:: build
 	rsync -rq --delete . $(APPS_EXTRA)/$(APP_NAME)
 
 $(APP_NAME).tar.gz:: build
-	tar -czf $(APP_NAME).tar.gz appinfo css js img lib LICENSE templates
+	tar -czf $(APP_NAME).tar.gz --transform "s,^,$(APP_NAME)/," appinfo css js img lib LICENSE templates
 ifneq (,$(wildcard ~/.nextcloud/certificates/$(APP_NAME).key))
 	@echo "Signature:"
 	openssl dgst -sha512 -sign ~/.nextcloud/certificates/$(APP_NAME).key $(APP_NAME).tar.gz | openssl base64
