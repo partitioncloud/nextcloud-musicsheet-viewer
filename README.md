@@ -21,7 +21,12 @@ The scores are fully processed in the client browser, thus the viewer is also ac
 
 ## Intallation
 
-TBA: Through Nextcloud App Store
+<p align="center">
+    <a href="https://apps.nextcloud.com/apps/musicsheetviewer">
+        <img width="183" height="64" alt="Get through Nextcloud App Store" src="https://github.com/user-attachments/assets/f45d5743-4772-4ccb-b5d0-509070e6cba0" />
+    </a>
+</p>
+
 
 ### Building from source
 
