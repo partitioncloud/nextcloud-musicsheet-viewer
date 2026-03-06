@@ -49,6 +49,7 @@ node_modules:
 	npm ci
 
 src/score-display/target: src/score-display
+	cd src/score-display && npm uninstall @magenta/music tone
 	cd src/score-display && make no-cdn
 
 src/score-display:
