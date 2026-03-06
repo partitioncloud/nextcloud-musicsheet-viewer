@@ -49,6 +49,9 @@ class DisplayController extends Controller {
 
 		$csp = new ContentSecurityPolicy();
 		$csp->addAllowedWorkerSrcDomain("'self' blob:");
+		// See NC sources, allowEvalScript will soon be deprecated
+		$csp->allowEvalScript(true);
+		$csp->allowEvalWasm(true);
 
 		$response->setContentSecurityPolicy($csp);
 
