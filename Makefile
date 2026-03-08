@@ -18,7 +18,7 @@ ifneq (,$(wildcard ~/.nextcloud/certificates/$(APP_NAME).key))
 endif
 
 ## Build and install dependencies
-build:: js css img js/webmscore/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
+build:: js img js/webmscore/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
 
 # This is a weird hack but .data files are not served statically from apps files in NC
 # Thus we rename webmscore.lib.data to webmscore.lib.data.wasm
@@ -29,18 +29,18 @@ js/webmscore/webmscore.lib.data.wasm: js/webmscore/webmscore.lib.data js
 # Same hack
 js/soundfonts/FluidR3Mono_GM.sf3.ogg: js/soundfonts/FluidR3Mono_GM.sf3
 	mv $< $@
-	sed -i 's/FluidR3Mono_GM\.sf3/FluidR3Mono_GM.sf3.ogg/g' js/score-display.global.js
+	sed -i 's/FluidR3Mono_GM\.sf3/FluidR3Mono_GM.sf3.ogg/g' js/score-display.rolldown.js
 
 js: npm-build src/score-display/target
 	cp -r src/score-display/target/* js/
-
-css: npm-build
+	rm js/score-display.rolldown*.js*
+	cp src/score-display/target/score-display.rolldown.no-mm+no-cdn.js js/score-display.rolldown.js
 	mv js/score-display.css css/
 	cat src/score-display.override.css >> css/score-display.css
 
 img: $(wildcard src/img/*.svg)
 	mkdir -p img
-	cp src/img/* img -r
+	cp src/img/*.svg img/ -r
 
 npm-build: node_modules
 	npm run $(BUILD_MODE)
@@ -49,8 +49,9 @@ node_modules:
 	npm ci
 
 src/score-display/target: src/score-display
-	cd src/score-display && npm uninstall @magenta/music tone
-	cd src/score-display && make no-cdn
+	cd src/score-display && make target target/score-display.rolldown.no-mm.js target/style/line-awesome
 
 clean:
-	$(RM) -r js css src/score-display
+	$(RM) -r js css img
+	$(RM) $(APP_NAME).tar.gz
+	cd src/score-display && make clean

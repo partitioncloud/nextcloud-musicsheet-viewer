@@ -43,7 +43,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 <html dir="ltr" mozdisallowselectionprint>
   <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('musicsheetviewer', 'css/score-display.css')) ?>" />
   <script type="module"
-    src="<?php p($urlGenerator->linkTo('musicsheetviewer', 'js/score-display.global.js')) ?>"
+    src="<?php p($urlGenerator->linkTo('musicsheetviewer', 'js/score-display.rolldown.js')) ?>"
     nonce="<?php p(\OC::$server->getContentSecurityPolicyNonceManager()->getNonce()) ?>"
 ></script>
   <meta charset="utf-8">

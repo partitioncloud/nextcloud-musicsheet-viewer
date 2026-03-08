@@ -4,6 +4,3 @@ css/
 img/
 node_modules/
 musicsheetviewer.tar.gz
-
-# Dependencies
-src/webmscore
