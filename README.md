@@ -37,7 +37,7 @@ cd nextcloud-musicsheet-viewer
 git submodule update --init --recursive
 # Build
 git pull --recurse-submodules
-make musicsheetviewer.zip
+make musicsheetviewer.tar.gz
 ```
 
 ### Development notes
