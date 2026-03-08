@@ -34,7 +34,9 @@ The scores are fully processed in the client browser, thus the viewer is also ac
 # Clone this repo
 git clone https://github.com/partitioncloud/nextcloud-musicsheet-viewer
 cd nextcloud-musicsheet-viewer
+git submodule update --init --recursive
 # Build
+git pull --recurse-submodules
 make musicsheetviewer.zip
 ```
 

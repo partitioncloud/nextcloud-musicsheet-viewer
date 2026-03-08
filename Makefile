@@ -52,8 +52,5 @@ src/score-display/target: src/score-display
 	cd src/score-display && npm uninstall @magenta/music tone
 	cd src/score-display && make no-cdn
 
-src/score-display:
-	git clone https://github.com/partitioncloud/musescore-web-display src/score-display
-
 clean:
 	$(RM) -r js css src/score-display

@@ -1,0 +1,3 @@
+[submodule "src/score-display"]
+	path = src/score-display
+	url = https://github.com/partitioncloud/musescore-web-display
