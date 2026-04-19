@@ -1,4 +1,6 @@
-APP_NAME = musicsheetviewer
+APP_NAME := musicsheetviewer
+WEBMSCORE_VERSION := $(shell sed -n 's/^WEBMSCORE_VERSION[[:space:]]*[:?]*=[[:space:]]*//p' src/score-display/Makefile)
+WEBMSCORE := js/webmscore$(WEBMSCORE_VERSION)
 
 # export BUILD_MODE=dev to build dev js
 BUILD_MODE ?= build
@@ -18,18 +20,19 @@ ifneq (,$(wildcard ~/.nextcloud/certificates/$(APP_NAME).key))
 endif
 
 ## Build and install dependencies
-build:: js img js/webmscore/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
+build:: js img $(WEBMSCORE)/webmscore.lib.data.wasm js/soundfonts/FluidR3Mono_GM.sf3.ogg
 
 # This is a weird hack but .data files are not served statically from apps files in NC
 # Thus we rename webmscore.lib.data to webmscore.lib.data.wasm
-js/webmscore/webmscore.lib.data.wasm: js/webmscore/webmscore.lib.data js
+$(WEBMSCORE)/webmscore.lib.data.wasm: $(WEBMSCORE)/webmscore.lib.data js
 	mv $< $@
-	cd js/webmscore && find . -type f -exec sed -i 's/webmscore\.lib\.data/webmscore.lib.data.wasm/g' {} \;
+	cd $(WEBMSCORE) && find . -type f -exec sed -i 's/webmscore\.lib\.data/webmscore.lib.data.wasm/g' {} \;
 
 # Same hack
 js/soundfonts/FluidR3Mono_GM.sf3.ogg: js/soundfonts/FluidR3Mono_GM.sf3
 	mv $< $@
 	sed -i 's/FluidR3Mono_GM\.sf3/FluidR3Mono_GM.sf3.ogg/g' js/score-display.rolldown.js
+	sed -i 's/LIB_WEBMSCORE = "\.\.\/webmscore\//LIB_WEBMSCORE = ".\/webmscore'$(WEBMSCORE_VERSION)'\//' js/score-display.rolldown.js
 
 js: npm-build src/score-display/target
 	cp -r src/score-display/target/* js/
