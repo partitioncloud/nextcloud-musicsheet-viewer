@@ -9,13 +9,14 @@
 /** @var array $_ */
 /** @var OCP\IURLGenerator $urlGenerator */
 $urlGenerator = $_['urlGenerator'];
-$version = \OC::$server->getAppManager()->getAppVersion('musicsheetviewer');
 
+use OC\Security\CSP\ContentSecurityPolicyNonceManager;
 use OCA\MusicSheetViewer\Migration\MimeTypeBase;
 
 $file = $_GET['file'] ?? '';
 $mime = $_GET['mime'] ?? '';
 $type = MimeTypeBase::getCanonicExt($mime) ?? '';
+$cspNonceManager = \OCP\Server::get(ContentSecurityPolicyNonceManager::class);
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +45,7 @@ See https://github.com/adobe-type-tools/cmap-resources
   <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('musicsheetviewer', 'css/score-display.css')) ?>" />
   <script type="module"
     src="<?php p($urlGenerator->linkTo('musicsheetviewer', 'js/score-display.rolldown.js')) ?>"
-    nonce="<?php p(\OC::$server->getContentSecurityPolicyNonceManager()->getNonce()) ?>"
+    nonce="<?php p($cspNonceManager->getNonce()) ?>"
 ></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
