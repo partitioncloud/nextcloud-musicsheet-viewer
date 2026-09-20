@@ -9,6 +9,12 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 > Nothing here...
 
+## [1.3.2] - 2026-09-20
+
+### Fixed
+
+- Nextcloud 35 support
+
 ## [1.3.1] - 2026-05-12
 
 ### Fixed
@@ -59,7 +65,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - Ability to load any file [potentially supported by MuseScore](https://musescore.org/en/handbook/3/file-formats#share-with-other-software)
 
 
-[unreleased]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.1...HEAD
+[unreleased]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.2...HEAD
+[1.3.2]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.2.5...v1.3.0
 [1.2.5]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.2.4...v1.2.5
