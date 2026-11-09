@@ -52,7 +52,7 @@ node_modules:
 	npm ci
 
 src/score-display/target: src/score-display
-	cd src/score-display && make target target/score-display.rolldown.no-mm.js target/style/line-awesome
+	cd src/score-display && make target target/score-display.rolldown.no-mm+no-cdn.js target/style/line-awesome
 
 clean:
 	$(RM) -r js css img
