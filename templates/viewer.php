@@ -52,7 +52,7 @@ See https://github.com/adobe-type-tools/cmap-resources
   <meta name="google" content="notranslate">
   <body>
   <score-display src="<?php p($file)?>" type="<?php p($type)?>">
-      <score-track src="<?php p($file)?>" type="mscz/synth:all">Tutti</score-track>
+      <score-track type="mscz/synth:all">Tutti</score-track>
       <score-download href="<?php p($file)?>">Download</score-download>
     </score-display>
   </body>
