@@ -9,6 +9,12 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 > Nothing here...
 
+## [1.3.4] - 2026-11-27
+
+### Added
+
+- Fix an issue regarding non-`mscz` files https://github.com/partitioncloud/nextcloud-musicsheet-viewer/issues/6
+
 ## [1.3.3] - 2026-11-09
 
 ### Added
@@ -79,7 +85,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - Ability to load any file [potentially supported by MuseScore](https://musescore.org/en/handbook/3/file-formats#share-with-other-software)
 
 
-[unreleased]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.3...HEAD
+[unreleased]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.4...HEAD
+[1.3.4]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/partitioncloud/nextcloud-musicsheet-viewer/compare/v1.3.0...v1.3.1
